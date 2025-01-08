@@ -12,7 +12,6 @@ class WeatherDashboard:
     """Initialize the WeatherDashboard with necessary configurations and Blob Storage setup."""
     self.api_key = os.getenv("OPENWEATHER_API_KEY")
     self.connect_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
-    self.storage_account_key = os.getenv("AZURE_STORAGE_ACCOUNT_KEY")
     
     self.container_name = "weather-data"
     self.blob_service_client = BlobServiceClient.from_connection_string(self.connect_str)

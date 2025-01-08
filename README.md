@@ -63,8 +63,7 @@ WeatherDashboard is a Python application that fetches weather data for specified
 4. Configure environment variables (.env):
    ```shell
    OPENWEATHER_API_KEY=your_api_key
-   STORAGE_ACCOUNT_URL=your_storage_account_url
-   STORAGE_ACCOUNT_KEY=your_storage_account_key
+   AZURE_STORAGE_CONNECTION_STRING=your_storage_account_connection_string
    ```
 5. Run the application:
    ```shell
