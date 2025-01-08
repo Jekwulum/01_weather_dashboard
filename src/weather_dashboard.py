@@ -11,12 +11,12 @@ class WeatherDashboard:
   def __init__(self):
     """Initialize the WeatherDashboard with necessary configurations and Blob Storage setup."""
     self.api_key = os.getenv("OPENWEATHER_API_KEY")
-    self.storage_account_url = os.getenv("STORAGE_ACCOUNT_URL")
-    self.storage_account_key = os.getenv("STORAGE_ACCOUNT_KEY")
+    self.connect_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+    self.storage_account_key = os.getenv("AZURE_STORAGE_ACCOUNT_KEY")
     
-    # self.container_name = "weather-data"
-    # self.blob_service_client = BlobServiceClient(account_url=self.storage_account_url, credential=self.storage_account_key)
-    # self.container_client = self._ensure_container_exists()
+    self.container_name = "weather-data"
+    self.blob_service_client = BlobServiceClient.from_connection_string(self.connect_str)
+    self._create_container_if_not_exists()
   
   def _create_container_if_not_exists(self):
     """Ensure the Blob container exists, creating it if necessary."""
@@ -24,7 +24,6 @@ class WeatherDashboard:
     if not container_client.exists():
       container_client.create_container()
       print(f"Container '{self.container_name}' created.")
-      return container_client
 
   def upload_to_blob(self, weather_data, city):
     """upload data to blob"""
@@ -36,8 +35,8 @@ class WeatherDashboard:
     
     try:
       weather_data['timestamp'] = timestamp
-      blob_client = self.container_client.get_blob_client(file_name)
-      blob_client.upload_blob(weather_data, overwrite=True)
+      blob_client = self.blob_service_client.get_blob_client(container=self.container_name, blob=file_name)
+      blob_client.upload_blob(json.dumps(weather_data), overwrite=True)
       print(f"FIle '{file_name}' uploaded to container '{self.container_name}'")
       return True
     except Exception as e:
@@ -82,11 +81,11 @@ def main():
       print(f"Humidity: {humidity}%")
       print(f"Conditions: {description}")
 
-    #   success = dashboard.upload_to_blob(weather_data, city)
-    #   if success:
-    #     print(f"Weather data for {city} saved to {dashboard.container_name}")
-    # else:
-    #   print(f"Failed to fetch weather data for {city}")
+      success = dashboard.upload_to_blob(weather_data, city)
+      if success:
+        print(f"Weather data for {city} saved to {dashboard.container_name}")
+    else:
+      print(f"Failed to fetch weather data for {city}")
 
 if __name__ == '__main__':
   main()
