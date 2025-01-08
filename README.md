@@ -48,7 +48,7 @@ WeatherDashboard is a Python application that fetches weather data for specified
 ## Running the application
 1. Clone the repository
     ```shell
-    git clone https://github.com/Jekwulum/01_weather_dashboard.git
+    git clone git@github.com:Jekwulum/01_weather_dashboard.git
     cd 01_weather_dashboard
     ```
 2. Create a virtual environment:
