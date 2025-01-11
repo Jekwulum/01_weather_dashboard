@@ -4,7 +4,7 @@ Day 1: Building a weather data collection system using Azure Blob storage and Op
 # Weather Data Collection System - DevOps Day 1 Challenge
 <!-- ![Project Structure](./DevopsChallenge_day01.drawio.png) -->
 <p align="center">
-  <img src="./DevopsChallenge_day01.drawio.png" alt="Logo" width="300"/>
+  <img src="./DevopsChallenge_day01.drawio.png" alt="Flow Diagram" width="300"/>
 </p>
 
 
