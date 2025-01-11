@@ -2,7 +2,11 @@
 Day 1: Building a weather data collection system using Azure Blob storage and OpenWeather API
 
 # Weather Data Collection System - DevOps Day 1 Challenge
-![Project Structure](./DevopsChallenge_day01.drawio.png)
+<!-- ![Project Structure](./DevopsChallenge_day01.drawio.png) -->
+<p align="center">
+  <img src="./DevopsChallenge_day01.drawio.png" alt="Logo" width="300"/>
+</p>
+
 
 ## Project Overview
 WeatherDashboard is a Python application that fetches weather data for specified cities using the OpenWeather API and stores the data in Azure Blob Storage for further analysis or use. This project demonstrates core DevOps principles by combining:
