@@ -73,16 +73,16 @@ WeatherDashboard is a Python application that fetches weather data for specified
    ```
 
 ## What I learned
-Azure Blob storage container creation and management
-Environment variable management for secure API keys
-Python best practices for API integration
-Git workflow for project development
-Error handling in distributed systems
-Cloud resource management
+- Azure Blob storage container creation and management
+- Environment variable management for secure API keys
+- Python best practices for API integration
+- Git workflow for project development
+- Error handling in distributed systems
+- Cloud resource management
 
 ## Future Enhancements
-Add weather forecasting
-Implement data visualization
-Add more cities
-Create automated testing
-Set up CI/CD pipeline
+- Add weather forecasting
+- Implement data visualization
+- Add more cities
+- Create automated testing
+- Set up CI/CD pipeline
